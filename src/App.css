@@ -4,6 +4,10 @@
   font-family: "Fira Sans", sans-serif;
 }
 
+.navbar-brand {
+  font-family: "Bubblegum Sans", sans-serif;
+}
+
 img {
   width: 100%;
 }
