@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans|Fira+Sans:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans|Fira+Sans+Condensed:400,700&display=swap");
 
 * {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
 }
 
 .navbar-brand {
