@@ -15,7 +15,10 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
+import EditProfile from './components/edit-profile/EditProfile';
+import AddExperience from './components/add-credentials/AddExperience';
 
+import './css/themes/bootstrap.superhero.min.css';
 import './App.css';
 import { clearCurrentProfile } from './actions/profileActions';
 
@@ -53,8 +56,29 @@ class App extends Component {
                 <PrivateRoute exact path="/dashboard" component={Dashboard}></PrivateRoute>
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/create-profile" component={CreateProfile}></PrivateRoute>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}>
+                </PrivateRoute>
               </Switch>
+
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/edit-profile"
+                  component={EditProfile}>
+                </PrivateRoute>
+              </Switch>
+
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/add-experience"
+                  component={AddExperience}>
+                </PrivateRoute>
+              </Switch>
+
             </div>
             <Footer></Footer>
           </div>
