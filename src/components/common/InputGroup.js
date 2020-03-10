@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 
 function InputGroup({
  name,
+ id,
  placeholder,
  value,
  error,
@@ -24,6 +25,7 @@ function InputGroup({
     })}
     placeholder={placeholder}
     name={name}
+    id={id}
     value={value}
     onChange={onChange}
    >
@@ -35,6 +37,7 @@ function InputGroup({
 
 InputGroup.propTypes = {
  name: PropTypes.string.isRequired,
+ id: PropTypes.string,
  placeholder: PropTypes.string,
  value: PropTypes.string.isRequired,
  icon: PropTypes.string,

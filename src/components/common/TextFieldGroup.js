@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 
 function TextFieldGroup({
  name,
+ id,
  placeholder,
  value,
  label,
@@ -22,6 +23,7 @@ function TextFieldGroup({
     })}
     placeholder={placeholder}
     name={name}
+    id={id}
     value={value}
     onChange={onChange}
     disabled={disabled}
@@ -35,6 +37,7 @@ function TextFieldGroup({
 
 TextFieldGroup.propTypes = {
  name: PropTypes.string.isRequired,
+ id: PropTypes.string,
  placeholder: PropTypes.string,
  value: PropTypes.string.isRequired,
  info: PropTypes.string,
