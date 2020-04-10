@@ -33,16 +33,16 @@
   stroke-linecap: round;
 }
 .skugga {
-  filter: blur(5px);
+  filter: blur(0.313rem);
   opacity: 0.3;
   position: absolute;
-  transform: translate(3px, 3px);
+  transform: translate(0.188rem, 0.188rem);
 }
 @keyframes Snurra1 {
   0% {
     stroke-dashoffset: 0;
   }
   100% {
-    stroke-dashoffset: -403px;
+    stroke-dashoffset: -25.188rem;
   }
 }

@@ -22,7 +22,8 @@ class Dashboard extends Component {
 
  render() {
   const { user } = this.props.auth;
-  const { profile, loading } = this.props.profile;
+  const { profile } = this.props.profile;
+  const { loading } = this.props.loading;
 
   let dashboardContent;
 
@@ -74,13 +75,15 @@ Dashboard.propTypes = {
  getCurrentProfile: PropTypes.func.isRequired,
  auth: PropTypes.object.isRequired,
  profile: PropTypes.object.isRequired,
- deleteAccount: PropTypes.func.isRequired
+ deleteAccount: PropTypes.func.isRequired,
+ loading: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {
  return {
   profile: state.profile,
-  auth: state.auth
+  auth: state.auth,
+  loading: state.loading
  }
 }
 

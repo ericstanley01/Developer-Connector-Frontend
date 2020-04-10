@@ -18,10 +18,13 @@ import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
 import AddExperience from './components/add-credentials/AddExperience';
 import AddEducation from './components/add-credentials/AddEducation';
+import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/Profile';
 
 import './css/themes/bootstrap.superhero.min.css';
 import './App.css';
 import { clearCurrentProfile } from './actions/profileActions';
+import NotFound from './components/not-found/NotFound';
 
 // check for token
 if (localStorage.jwtToken) {
@@ -53,6 +56,8 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
+              <Route exact path="/profiles" component={Profiles}></Route>
+              <Route exact path="/profile/:handle" component={Profile}></Route>
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard}></PrivateRoute>
               </Switch>
@@ -87,7 +92,7 @@ class App extends Component {
                   component={AddEducation}>
                 </PrivateRoute>
               </Switch>
-
+              <Route exact path="/not-found" component={NotFound}></Route>
             </div>
             <Footer></Footer>
           </div>
