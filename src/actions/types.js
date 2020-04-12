@@ -7,4 +7,4 @@ export const LOADING = 'LOADING';
 export const UNLOAD = 'UNLOAD';
 export const PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND';
 export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
-
+export const GET_GITHUB_REPOS = 'GET_GITHUB_REPOS'

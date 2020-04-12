@@ -2,11 +2,13 @@ import {
   GET_PROFILE,
   // GET_PROFILES,
   // PROFILE_LOADING,
-  CLEAR_CURRENT_PROFILE
+  CLEAR_CURRENT_PROFILE,
+  GET_GITHUB_REPOS
 } from '../actions/types';
 
 const initialState = {
   profile: null,
+  repos: null
   // profiles: null,
   // loading: false
 }
@@ -35,6 +37,11 @@ export default function (state = initialState, action) {
     //     profiles: action.payload,
     //     loading: false
     //   }
+    case GET_GITHUB_REPOS:
+      return {
+        ...state,
+        repos: action.payload
+      }
     default:
       return state;
   }

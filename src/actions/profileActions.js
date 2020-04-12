@@ -7,6 +7,7 @@ import {
   GET_ERRORS,
   SET_CURRENT_USER,
   // UNLOAD
+  GET_GITHUB_REPOS
 } from './types';
 import { setLoading, setUnLoad } from './loadingAction';
 
@@ -169,4 +170,24 @@ export const deleteAccount = () => dispatch => {
       type: GET_ERRORS,
       payload: err.res.data
     }));
+}
+
+export const getGithubRepos = (username) => dispatch => {
+  // const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID
+  // const clientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET
+  const count = 5
+  const sort = 'created: asc'
+  axios.get(`https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}`)
+    .then(data => {
+      dispatch({
+        type: GET_GITHUB_REPOS,
+        payload: data.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err
+      });
+    });
 }
