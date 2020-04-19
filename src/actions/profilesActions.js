@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {
   GET_PROFILES,
-  //  PROFILE_LOADING
-  // UNLOAD
+  PROFILES_LOADING,
+  PROFILES_UNLOAD,
 } from './types';
-import { setLoading, setUnLoad } from './loadingAction';
+// import { setLoading, setUnLoad } from './loadingAction';
 
 // profile loading
 // export const setProfileLoading = () => {
@@ -15,7 +15,9 @@ import { setLoading, setUnLoad } from './loadingAction';
 
 // get all profiles
 export const getProfiles = () => dispatch => {
-  dispatch(setLoading());
+  dispatch({
+    type: PROFILES_LOADING
+  });
   axios
     .get('/api/profile/all')
     .then(res => {
@@ -23,13 +25,14 @@ export const getProfiles = () => dispatch => {
         type: GET_PROFILES,
         payload: res.data
       });
-      dispatch(setUnLoad());
     })
     .catch(err => {
       dispatch({
         type: GET_PROFILES,
         payload: null
       });
-      dispatch(setUnLoad());
+      dispatch({
+        type: PROFILES_UNLOAD
+      });
     });
 }

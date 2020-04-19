@@ -23,11 +23,11 @@ class Dashboard extends Component {
  render() {
   const { user } = this.props.auth;
   const { profile } = this.props.profile;
-  const { loading } = this.props.loading;
+  const { profileLoading } = this.props.profile;
 
   let dashboardContent;
 
-  if (profile === null || loading) {
+  if (profile === null || profileLoading) {
    dashboardContent = <Spinner></Spinner>;
   } else {
    // check if logged in user has profile data
@@ -75,15 +75,13 @@ Dashboard.propTypes = {
  getCurrentProfile: PropTypes.func.isRequired,
  auth: PropTypes.object.isRequired,
  profile: PropTypes.object.isRequired,
- deleteAccount: PropTypes.func.isRequired,
- loading: PropTypes.object.isRequired
+ deleteAccount: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {
  return {
   profile: state.profile,
-  auth: state.auth,
-  loading: state.loading
+  auth: state.auth
  }
 }
 

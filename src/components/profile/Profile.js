@@ -19,7 +19,7 @@ class Profile extends Component {
  }
 
  componentWillReceiveProps(nextProps) {
-  if (nextProps.profile.profile === null && this.props.loading) {
+  if (nextProps.profile.profile === null && this.props.profile.profileLoading) {
    this.props.history.push('/not-found');
   }
  }
@@ -27,18 +27,18 @@ class Profile extends Component {
  render() {
 
   const { profile } = this.props.profile;
-  const { loading } = this.props.loading;
+  const { profileLoading } = this.props.profile;
 
   let profileContent;
 
-  if (profile === null || loading) {
+  if (profile === null || profileLoading) {
    profileContent = <Spinner></Spinner>
   } else {
    profileContent = (
     <div>
      <div className="row">
       <div className="col-md-6">
-       <Link to="/profiles" className="btn btn-light mb-3 float-left">
+       <Link to="/profiles" className="btn btn-dark mb-3 float-left">
         Back To Profiles
        </Link>
       </div>
@@ -69,13 +69,11 @@ class Profile extends Component {
 
 Profile.propTypes = {
  getProfileByHandle: PropTypes.func.isRequired,
- profile: PropTypes.object.isRequired,
- loading: PropTypes.object.isRequired
+ profile: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
- profile: state.profile,
- loading: state.loading
+ profile: state.profile
 });
 
 export default connect(mapStateToProps, { getProfileByHandle })(Profile);

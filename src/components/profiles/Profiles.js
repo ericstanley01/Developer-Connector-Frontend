@@ -14,10 +14,10 @@ class Profiles extends Component {
  render() {
 
   const { profiles } = this.props.profiles;
-  const { loading } = this.props.loading;
+  const { profilesLoading } = this.props.profiles;
   let profileItems;
 
-  if (profiles === null || loading) {
+  if (profiles === null || profilesLoading) {
    profileItems = <Spinner></Spinner>
   } else {
    if (profiles.length > 0) {
@@ -47,13 +47,11 @@ class Profiles extends Component {
 
 Profiles.propTypes = {
  getProfiles: PropTypes.func.isRequired,
- profiles: PropTypes.object.isRequired,
- loading: PropTypes.object.isRequired
+ profiles: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
- profiles: state.profiles,
- loading: state.loading
+ profiles: state.profiles
 });
 
 export default connect(mapStateToProps, { getProfiles })(Profiles);

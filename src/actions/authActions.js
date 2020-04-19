@@ -2,12 +2,17 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
 
-import { GET_ERRORS, SET_CURRENT_USER } from "./types"
+import { GET_ERRORS, SET_CURRENT_USER, CLEAR_ERRORS } from "./types"
 
 // register user
 export const registerUser = (userData, history) => dispatch => {
    axios.post('/api/users/register', userData)
-      .then(user => history.push('/login'))
+      .then(user => {
+         history.push('/login');
+         dispatch({
+            type: CLEAR_ERRORS
+         });
+      })
       .catch(err =>
          dispatch({
             type: GET_ERRORS,
@@ -29,6 +34,9 @@ export const loginUser = (userData) => dispatch => {
          const decodedToken = jwtDecode(token);
          // set current user
          dispatch(setCurrentUser(decodedToken));
+         dispatch({
+            type: CLEAR_ERRORS
+         });
       })
       .catch(err =>
          dispatch({

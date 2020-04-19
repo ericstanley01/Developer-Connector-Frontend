@@ -1,21 +1,19 @@
 import {
-  GET_ERRORS,
-  CLEAR_ERRORS
+  POSTS_LOADING,
+  GET_POSTS
 } from '../actions/types';
 
 const initialState = {
-  errors: {}
-}
+  posts: [],
+  postsLoading: false
+};
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_ERRORS:
+    case POSTS_LOADING:
       return {
-        errors: action.payload
-      }
-    case CLEAR_ERRORS:
-      return {
-        errors: {}
+        ...state,
+        postsLoading: true
       }
     default:
       return state;
