@@ -4,6 +4,9 @@ import {
   PROFILES_LOADING,
   PROFILES_UNLOAD,
 } from './types';
+
+const baseApiURL = process.env.REACT_APP_API_URL;
+
 // import { setLoading, setUnLoad } from './loadingAction';
 
 // profile loading
@@ -19,7 +22,7 @@ export const getProfiles = () => dispatch => {
     type: PROFILES_LOADING
   });
   axios
-    .get('/api/profile/all')
+    .get(baseApiURL + '/api/profile/all')
     .then(res => {
       dispatch({
         type: GET_PROFILES,

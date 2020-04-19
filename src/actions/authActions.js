@@ -4,9 +4,11 @@ import jwtDecode from 'jwt-decode';
 
 import { GET_ERRORS, SET_CURRENT_USER, CLEAR_ERRORS } from "./types"
 
+const baseApiURL = process.env.REACT_APP_API_URL;
+
 // register user
 export const registerUser = (userData, history) => dispatch => {
-   axios.post('/api/users/register', userData)
+   axios.post(baseApiURL + '/api/users/register', userData)
       .then(user => {
          history.push('/login');
          dispatch({
@@ -22,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 // login and get user token
 export const loginUser = (userData) => dispatch => {
-   axios.post('/api/users/login', userData)
+   axios.post(baseApiURL + '/api/users/login', userData)
       .then(user => {
          // save to local storage
          const { token } = user.data;

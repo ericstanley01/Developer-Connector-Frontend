@@ -13,12 +13,14 @@ import {
    COMMENT_UNLOAD
 } from './types';
 
+const baseApiURL = process.env.REACT_APP_API_URL;
+
 // add post
 export const addPost = postData => dispatch => {
    dispatch({
       type: POST_LOADING
    });
-   axios.post('/api/posts', postData)
+   axios.post(baseApiURL + '/api/posts', postData)
       .then(res => {
          dispatch({
             type: ADD_POST,
@@ -44,7 +46,7 @@ export const getPosts = () => dispatch => {
    dispatch({
       type: POST_LOADING
    });
-   axios.get('/api/posts')
+   axios.get(baseApiURL + '/api/posts')
       .then(res =>
          dispatch({
             type: GET_POSTS,
@@ -62,7 +64,7 @@ export const getPost = (postId) => dispatch => {
    dispatch({
       type: POST_LOADING
    });
-   axios.get(`/api/posts/${postId}`)
+   axios.get(baseApiURL + `/api/posts/${postId}`)
       .then(res => {
          dispatch({
             type: GET_POST,
@@ -85,7 +87,7 @@ export const deletePost = postId => dispatch => {
    dispatch({
       type: POST_LOADING
    });
-   axios.delete(`/api/posts/${postId}`)
+   axios.delete(baseApiURL + `/api/posts/${postId}`)
       .then(res => {
          dispatch({
             type: DELETE_POST,
@@ -108,7 +110,7 @@ export const deletePost = postId => dispatch => {
 
 // add like
 export const addLike = postId => dispatch => {
-   axios.post(`/api/posts/like/${postId}`)
+   axios.post(baseApiURL + `/api/posts/like/${postId}`)
       .then(res => {
          dispatch(getPosts());
          dispatch({
@@ -124,7 +126,7 @@ export const addLike = postId => dispatch => {
 
 // remove like
 export const removeLike = postId => dispatch => {
-   axios.post(`/api/posts/unlike/${postId}`)
+   axios.post(baseApiURL + `/api/posts/unlike/${postId}`)
       .then(res => {
          dispatch(getPosts());
          dispatch({
@@ -143,7 +145,7 @@ export const addComment = (postId, commentData) => dispatch => {
    dispatch({
       type: COMMENT_LOADING
    });
-   axios.post(`/api/posts/comment/${postId}`, commentData)
+   axios.post(baseApiURL + `/api/posts/comment/${postId}`, commentData)
       .then(res => {
          dispatch({
             type: GET_POST,
@@ -169,7 +171,7 @@ export const deleteComment = (postId, commentId) => dispatch => {
    dispatch({
       type: COMMENT_LOADING
    });
-   axios.delete(`/api/posts/comment/${postId}/${commentId}`)
+   axios.delete(baseApiURL + `/api/posts/comment/${postId}/${commentId}`)
       .then(res => {
          dispatch({
             type: GET_POST,

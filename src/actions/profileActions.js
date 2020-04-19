@@ -16,12 +16,13 @@ import {
 } from './types';
 // import { setLoading, setUnLoad } from './loadingAction';
 
+const baseApiURL = process.env.REACT_APP_API_URL;
 // get current profile
 export const getCurrentProfile = () => dispatch => {
   dispatch({
     type: PROFILE_LOADING
   });
-  axios.get('/api/profile')
+  axios.get(baseApiURL + '/api/profile')
     .then((res) => {
       dispatch({
         type: GET_PROFILE,
@@ -44,7 +45,7 @@ export const getProfileByHandle = (handle) => dispatch => {
   dispatch({
     type: PROFILE_LOADING
   });
-  axios.get(`/api/profile/handle/${handle}`)
+  axios.get(baseApiURL + `/api/profile/handle/${handle}`)
     .then((res) => {
       dispatch({
         type: GET_PROFILE,
@@ -67,7 +68,7 @@ export const getProfileByUserId = (userId) => dispatch => {
   dispatch({
     type: PROFILE_LOADING
   });
-  axios.get(`/api/profile/user/${userId}`)
+  axios.get(baseApiURL + `/api/profile/user/${userId}`)
     .then((res) => {
       dispatch({
         type: GET_PROFILE,
@@ -90,7 +91,7 @@ export const createProfile = (profileData, history) => dispatch => {
   dispatch({
     type: PROFILE_LOADING
   });
-  axios.post('/api/profile', profileData)
+  axios.post(baseApiURL + '/api/profile', profileData)
     .then(profile => {
       history.push('/dashboard');
       dispatch({
@@ -125,7 +126,7 @@ export const clearCurrentProfile = () => {
 // add experience
 export const addExperience = (expData, history) => dispatch => {
   axios
-    .post('/api/profile/experience', expData)
+    .post(baseApiURL + '/api/profile/experience', expData)
     .then(res => {
       history.push('/dashboard');
       dispatch({
@@ -143,7 +144,7 @@ export const addExperience = (expData, history) => dispatch => {
 // add education
 export const addEducation = (eduData, history) => dispatch => {
   axios
-    .post('/api/profile/education', eduData)
+    .post(baseApiURL + '/api/profile/education', eduData)
     .then(res => {
       history.push('/dashboard');
       dispatch({
@@ -161,7 +162,7 @@ export const addEducation = (eduData, history) => dispatch => {
 // delete experience
 export const deleteExperience = (id) => dispatch => {
   axios
-    .delete(`/api/profile/experience/${id}`)
+    .delete(baseApiURL + `/api/profile/experience/${id}`)
     .then(res => {
       dispatch({
         type: GET_PROFILE,
@@ -182,7 +183,7 @@ export const deleteExperience = (id) => dispatch => {
 // delete education
 export const deleteEducation = (id) => dispatch => {
   axios
-    .delete(`/api/profile/education/${id}`)
+    .delete(baseApiURL + `/api/profile/education/${id}`)
     .then(res => {
       dispatch({
         type: GET_PROFILE,
@@ -221,7 +222,7 @@ export const deleteEducation = (id) => dispatch => {
 // delete account and profile
 export const deleteAccount = () => dispatch => {
   axios
-    .delete('/api/profile')
+    .delete(baseApiURL + '/api/profile')
     .then(res => {
       dispatch({
         type: SET_CURRENT_USER,
