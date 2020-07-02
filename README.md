@@ -67,6 +67,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
+### Note
+Make sure to add `Redux DevTools` extension in Chrome browser as this is just a dev version
+
 ### Demo URL
 
-https://dev-conector-frontend.netlify.app/
+https://dev-conector-frontend.netlify.app/ <br />
+https://dev-conector-frontend.onrender.com/
+
