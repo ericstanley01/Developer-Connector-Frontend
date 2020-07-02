@@ -73,5 +73,5 @@ Make sure to add `Redux DevTools` extension in Chrome browser as this is just a 
 ### Demo URL
 
 https://dev-conector-frontend.netlify.app/ <br />
-https://dev-conector-frontend.onrender.com/
-
+https://dev-conector-frontend.onrender.com/ <br />
+https://dev-conector-frontend.vercel.app/
